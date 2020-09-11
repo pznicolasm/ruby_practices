@@ -28,3 +28,20 @@ end
 
 c = Conversor.new
 c.topiesometros()
+
+# ------------------------------------------------------------
+
+# def conversor
+# 	{ #bloque / los bloques son lo unico que no son objetos. una func adentro de otra
+# 	  metros_a_pies: ->(n) { n * 3.2808 },
+# 	  pies_a_metros: ->(n) { n / 3.2808 },
+# 	}
+#   end
+  
+#   def convertir_unidad(n, unidad_inicial, unidad_salida)
+# 	converter = "#{unidad_inicial}a#{unidad_salida}".to_sym #to simbolo
+# 	puts "#{n} #{unidad_inicial} son #{conversor[converter].(n)} #{unidad_salida}"
+#   end
+  
+#   puts convertir_unidad(100,'pies','metros')
+#   puts convertir_unidad(100,'metros','pies')
