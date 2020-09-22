@@ -20,7 +20,6 @@
 # descuentos y promociones
 
 
-
 require 'csv'
 
 productos = [] #crea lista vacia
@@ -45,11 +44,29 @@ def add(producto,productos,orden)
 		puts 'no se encontro'
 	else 
 		puts 'se encontro'
-		orden << producto #la orden es el producto encontrado
-		precio = productos.select{|(x,y,z)| y==producto} #selecciona los 3 items del array y compara el 2do
-		puts precio[0][2]
-		#puts orden
+		item = productos.select{|(x,y,z)| y==producto} #selecciona los 3 items del array y compara el 2do
+		p item
+		orden << item[0] #la orden es el producto encontrado
 	end
-end	
+end
+
+def total(orden)
+	choclo = orden.map { |n| n[1] }.count { |x| x == 'Historias de chillar' }
+	total = orden.map { |n| n[2].to_i }.sum
+	if choclo >= 2
+		cho = choclo * 10		 	
+		total = total - cho
+	end
+	if total > 200
+		desc = (total * 10) / 100
+		total = total - desc
+		puts total
+	else
+		puts total
+	end
+end
 
 add('Historias de chillar',productos,orden)
+add('Historias de chillar',productos,orden)
+add('Pegamento de personas',productos,orden)
+total(orden)
